@@ -2,9 +2,11 @@ import re, os, time
 import datetime
 
 class Config:
-    BOT_TOKEN = os.environ.get('BOT_TOKEN')
-    API_HASH = os.environ.get('API_HASH')
-    API_ID = int(os.environ.get('API_ID'))
-    OWNER_ID = int(os.environ.get('OWNER_ID')) #Admin UserId
+    API_ID = "1144902"
+    API_HASH ="e743e5a4f35076e4c558a4bd713082e9"
+    BOT_TOKEN = "7907920004:AAG18EpyWZKX27apayhahGDsQ8tB3NqBW-0"
+    OWNER_ID = "7788212890"
+    CREDIT = "kIRODWAL"
+    AUTH_USER = "7788212890"
     DB_URI = os.environ.get('DB_URI') #May Be In Future.
     
