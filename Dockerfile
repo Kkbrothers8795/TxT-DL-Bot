@@ -1,10 +1,20 @@
-FROM python:3.9.7-slim-buster
+FROM python:3.9.7-alpine3.14
 
 
-WORKDIR /ap
-RUN apt -qq update && apt -qq install -y git wget pv jq python3-dev ffmpeg mediainfo
+WORKDIR /app
 COPY . .
-RUN  pip3 install --no-cache-dir --upgrade -r requirements.txt
-RUN apt install ffmpeg
+
+
+# Install necessary dependencies
+RUN apk add --no-cache \
+    gcc \
+    libffi-dev \
+    musl-dev \
+    ffmpeg \
+    aria2 
+    
+# Install Python dependencies
+RUN pip3 install --no-cache-dir --upgrade pip \
+    && pip3 install --no-cache-dir --upgrade -r requirements.txt
 
 CMD ["python3", "main.py"]
