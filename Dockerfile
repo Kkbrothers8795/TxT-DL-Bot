@@ -12,9 +12,9 @@ RUN apk add --no-cache \
     musl-dev \
     ffmpeg \
     aria2 \
-    libssl-dev \
-    libcurl4-openssl-dev \
-    python-dev
+    curl-dev \
+    python3-dev \
+    libressl-dev
     
 # Install Python dependencies
 RUN pip3 install --no-cache-dir --upgrade pip \
