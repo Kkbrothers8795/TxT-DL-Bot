@@ -7,7 +7,7 @@ ffmpeg
 aiohttp
 aiofiles
 asyncio
-pycurl=7.45.2
+pycurl==7.45.2
 humanize
 flask==2.2.2
 gunicorn==20.1.0
