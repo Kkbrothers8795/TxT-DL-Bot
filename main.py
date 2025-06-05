@@ -496,9 +496,9 @@ async def account_login(bot: Client, m: Message):
             cc = f'**Title »** {name1}.mkv {video}\n**Batch »** {raw_text0}\n**Index »** {str(count).zfill(3)}'
             if "pdf" in url:
                 cmd = f'yt-dlp -o "{name}.pdf" "{url1}"'
-            else:
+            elif:
                 cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --remux-video mkv "{url1}"'
-            elseif:
+            else:
                 cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video --no-keep-video mp4"{url1}"'
             try:
                 download_cmd = f"{cmd} -R 25 --fragment-retries 25 --external-downloader aria2c --downloader-args 'aria2c: -x 16 -j 32'"
