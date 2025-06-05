@@ -302,13 +302,13 @@ async def account_login(bot: Client, m: Message):
 
 
             if "youtu" in url:
-                cmd = f'yt-dlp -o "{name}.%(ext)s" -f "bestvideo[height<={int(raw_text2)}]+bestaudio" --no-keep-video --remux-video mp4 "{url}"'
+                cmd = f'yt-dlp -o "{name}.%(ext)s" -f "bestvideo[height<={int(raw_text2)}]+bestaudio" --no-keep-video "{url}"'
             elif "player.vimeo" in url:
-                cmd = f'yt-dlp -f "{ytf}+bestaudio" --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp -f "{ytf}+bestaudio" --no-keep-video "{url}" -o "{name}.%(ext)s"'
             elif "m3u8" or "livestream" in url:
-                cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp -f "{ytf}" --no-keep-video "{url}" -o "{name}.%(ext)s"'
             elif ytf == "0" or "unknown" in out:
-                cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp -f "{ytf}" --no-keep-video "{url}" -o "{name}.%(ext)s"'
             elif ".pdf" in url:
                 cmd = "pdf"
             elif "drive" in url:
@@ -322,7 +322,7 @@ async def account_login(bot: Client, m: Message):
             elif "mkv" in url:
                 cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.mkv"'
             else:
-                cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video "{url}" -o "{name}.%(ext)s"'
 
 
 
@@ -499,7 +499,7 @@ async def account_login(bot: Client, m: Message):
             if "pdf" in url:
                 cmd = f'yt-dlp -o "{name}.pdf" "{url1}"'
             else:
-                cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --remux-video mkv "{url1}"'
+                cmd = f'yt-dlp -o "{name}.%(ext)s" --no-keep-video "{url1}"'
                 
             try:
                 download_cmd = f"{cmd} -R 25 --fragment-retries 25 --external-downloader aria2c --downloader-args 'aria2c: -x 16 -j 32'"
