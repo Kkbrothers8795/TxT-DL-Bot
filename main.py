@@ -318,9 +318,9 @@ async def account_login(bot: Client, m: Message):
             elif ytf == "unknown":
                 cmd = f'yt-dlp -o "{name}.%(ext)s" --no-keep-video "{url}"'
             elif ".mkv" in url:
-                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.mkv"'
             elif "mkv" in url:
-                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.mkv"'
             else:
                 cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
 
