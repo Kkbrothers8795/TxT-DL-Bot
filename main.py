@@ -314,13 +314,13 @@ async def account_login(bot: Client, m: Message):
             elif "drive" in url:
                 cmd = "pdf"
             elif ytf == "no":
-                cmd = f'yt-dlp -o "{name}.%(ext)s" --no-keep-video "{url}"'
+                cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video "{url}"'
             elif ytf == "unknown":
                 cmd = f'yt-dlp -o "{name}.%(ext)s" --no-keep-video "{url}"'
             elif ".mkv" in url:
-                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.mkv"'
+                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.mp4"'
             elif "mkv" in url:
-                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.mkv"'
+                cmd = f'yt-dlp --no-keep-video  "{url}" -o "{name}.mp4"'
             else:
                 cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video "{url}" -o "{name}.%(ext)s"'
 
