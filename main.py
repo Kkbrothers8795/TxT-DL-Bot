@@ -315,8 +315,8 @@ async def account_login(bot: Client, m: Message):
                 cmd = "pdf"
             elif ytf == "no":
                 cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --remux-video mp4 "{url}"'
-            elif "mkv" in url:
-                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video --remux-video mp4 "{url}"'
+            elif ".mkv" in url:
+                cmd = f'yt-dlp -o "{name}.%(ext)s" --no-keep-video --remux-video mp4 "{url}" && ffmpeg -i "{name}.%(ext)s" -c:v libx264 "{name}.mp4"'
             else:
                 cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
 
