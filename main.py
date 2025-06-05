@@ -308,17 +308,17 @@ async def account_login(bot: Client, m: Message):
             elif "m3u8" or "livestream" in url:
                 cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
             elif ytf == "0" or "unknown" in out:
-                cmd = f'yt-dlp -f "{ytf}" --no-keep-video "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp -f "{ytf}" --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
             elif ".pdf" in url:
                 cmd = "pdf"
             elif "drive" in url:
                 cmd = "pdf"
             elif ytf == "no":
-                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video "{url}"'
-            elif ".mkv" in url:
-               cmd = f'yt-dlp -f "{ytf}" --no-keep-video "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video --remux-video mp4 "{url}"'
+            elif "mkv" in url:
+                cmd = f'yt-dlp -f "{ytf}" --no-keep-video  "{url}" -o "{name}.%(ext)s"'
             else:
-                cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video  "{url}" -o "{name}.%(ext)s"'
+                cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
 
 
 
