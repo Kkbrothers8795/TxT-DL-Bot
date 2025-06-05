@@ -482,9 +482,7 @@ async def account_login(bot: Client, m: Message):
                 url1 = (response1.text).split("\n")[2]
                             
 #                 url1 = b
-            elif "mkv" in url:
-                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video --no-keep-video mp4"{url}"'
-                
+            
             else:
                 url1 = url
 
