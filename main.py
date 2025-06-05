@@ -316,7 +316,7 @@ async def account_login(bot: Client, m: Message):
             elif ytf == "no":
                 cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --remux-video mp4 "{url}"'
             elif "mkv" in url:
-                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video "{url}"'
+                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video --no-keep-video mp4"{url}"'
             else:
                 cmd = f'yt-dlp -f "{ytf}+bestaudio" --hls-prefer-ffmpeg --no-keep-video --remux-video mp4 "{url}" -o "{name}.%(ext)s"'
 
@@ -482,6 +482,9 @@ async def account_login(bot: Client, m: Message):
                 url1 = (response1.text).split("\n")[2]
                             
 #                 url1 = b
+            elif "mkv" in url:
+                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video --no-keep-video mp4"{url}"'
+                
             else:
                 url1 = url
 
@@ -495,6 +498,8 @@ async def account_login(bot: Client, m: Message):
                 cmd = f'yt-dlp -o "{name}.pdf" "{url1}"'
             else:
                 cmd = f'yt-dlp -o "{name}.mp4" --no-keep-video --remux-video mkv "{url1}"'
+            else:
+                cmd = f'yt-dlp -o "{name}.mkv" --no-keep-video --no-keep-video mp4"{url1}"'
             try:
                 download_cmd = f"{cmd} -R 25 --fragment-retries 25 --external-downloader aria2c --downloader-args 'aria2c: -x 16 -j 32'"
                 os.system(download_cmd)
