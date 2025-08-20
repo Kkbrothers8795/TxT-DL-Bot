@@ -17,7 +17,7 @@ RUN apk add --no-cache \
     libressl-dev
     
 # Install Python dependencies
-RUN pip3 install --no-cache-dir --upgrade pip \
+RUN pip3 install  --upgrade pip \
     && pip3 install  --upgrade -r requirements.txt
 
 CMD ["python3", "main.py"]
