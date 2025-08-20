@@ -18,6 +18,6 @@ RUN apk add --no-cache \
     
 # Install Python dependencies
 RUN pip3 install --no-cache-dir --upgrade pip \
-    && pip3 install --no-cache-dir --upgrade -r requirements.txt
+    && pip3 install  --upgrade -r requirements.txt
 
 CMD ["python3", "main.py"]
